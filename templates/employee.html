@@ -1,0 +1,70 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand text-white" href="http://localhost:5000/">Employee Records</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+          <a class="nav-link text-white" href="http://localhost:5000/welcome">Welcome<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link text-white" href="http://localhost:5000/greetings">Greetings</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Records
+        </a>
+        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item text-white" href="http://localhost:5000/myform">Submit</a>
+          <a class="dropdown-item text-white" href="http://localhost:5000/update">View</a>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+{% endblock %}
+
+
+{% block content %}
+<body class = "container-fluid bg-secondary text-white">
+<form action="{{ url_for('addrec')}}" method = "POST">
+    <div>
+    <h2>Employee Information</h2>
+    <h4>Name</h4>
+    <input type = "text" name = "nm"/> <br>
+    
+    <h4>Address</h4>
+    <input type = "text" name = "add"/> <br>
+
+    <h4>Department</h4>
+    <input type = "text" name = "dep"/> <br>
+
+    <h4>Employee ID</h4>
+<input type = "text" name = "eid"/> <br>
+<br>
+<input type = "submit" class = "btn btn-warning" value = "Submit"/>
+
+</div>
+</body>
+</form>
+
+{% endblock %}
